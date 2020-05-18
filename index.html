@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Monopolis</title>
+  </head>
+  <body>
+    <div class="showOtherCard">
+      <h1 class="cardName"></h1>
+      <ul class="renting">
+        <li class="1Rent">Nuoma <span class="rentPrice"></span></li>
+        <li class="2Rent">
+          Jeigu turite 2 stotis <span class="rentPrice"></span>
+        </li>
+        <li class="3Rent">
+          Jeigu turite 3 stotis <span class="rentPrice"></span>
+        </li>
+        <li class="4Rent">
+          Jeigu turite 4 stotis <span class="rentPrice"></span>
+        </li>
+      </ul>
+      <div class="buyOrNo">
+        <button class="buyCard">
+          Pirkti už<span class="cardPrice"></span>
+        </button>
+        <button class="dontBuy">
+          Nepirkti
+        </button>
+      </div>
+    </div>
+    <div class="showStreetCard">
+      <div class="cardNameStreet"></div>
+      <ul class="renting">
+        <li class="rentNormal">Nuoma <span class="rentPriceStreet"></span></li>
+        <li class="rentNormal">
+          Nuoma, kai turi visas kortas <span class="rentPriceStreet"></span>
+        </li>
+        <li class="rentHouse">
+          Nuoma su 1 nameliu <span class="rentPriceStreet"></span>
+        </li>
+        <li class="rentHouse">
+          Nuoma su 2 nameliais <span class="rentPriceStreet"></span>
+        </li>
+        <li class="rentHouse">
+          Nuoma su 3 nameliais <span class="rentPriceStreet"></span>
+        </li>
+        <li class="rentHouse">
+          Nuoma su 4 nameliais <span class="rentPriceStreet"></span>
+        </li>
+        <li class="rentHotel">
+          Nuoma su viešbučiu <span class="rentPriceStreet"></span>
+        </li>
+      </ul>
+      <ul class="housePricing">
+        <li class="houseCost">Namo kaina<span class="housePrice"></span></li>
+        <li class="houseCost">
+          Viešbučio kaina<span class="housePrice"></span>
+        </li>
+      </ul>
+
+      <div class="buyOrNo">
+        <button class="buyCard">
+          Pirkti už<span class="cardPriceStreet"></span>
+        </button>
+        <button class="dontBuy">
+          Nepirkti
+        </button>
+      </div>
+    </div>
+    <div class="showChanceCard">
+      <h1>Šansas</h1>
+      <div class="chanceContainer">
+        <h3 class="chanceText"></h3>
+        <img src="images/guy.png" />
+      </div>
+      <button class="chanceAction button">SUMOKĖTI</button>
+    </div>
+
+    <div class="payForCard">
+      <div class="payCardText">
+        <h1 class="payCardOwner"></h1>
+        <h1 class="payCardName"></h1>
+      </div>
+
+      <button class="payCardBtn button">
+        Susimokėti<span class="payCard"></span>
+      </button>
+    </div>
+    <div class="whoseTurn">
+      <button class="turnBtn">Mesti kauliuką</button>
+      <button class="finishTurnBtn">Baigti ėjimą</button>
+      <div class="turnText">
+        <h2 class="turnNr">1 žaidėjo eilė</h2>
+        <h2 class="leftTime"></h2>
+      </div>
+    </div>
+    <div class="container">
+      <!-- <div class="theStartContainer">
+      <h3>Žaidėjų kiekis</h3>
+      <select id="theStart">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <input type="button" value="Toliau" id="chooseCharBtn" />
+    </div> -->
+
+      <div class="board">
+        <div class="monopoly">
+          <img src="images/monopoly.png" />
+        </div>
+        <div class="chestBox">
+          <img src="images/chestCard.png" />
+        </div>
+        <div class="chanceBox">
+          <img src="images/chanceCard.png" />
+        </div>
+
+        <div class="double-box start">
+          <p class="text">
+            pasiimk<br />
+            200 kai praeisi<br />
+            <span class="bigger-text">eik</span>
+          </p>
+          <img src="images/arrow.png" />
+        </div>
+
+        <div class="double-box jail">
+          <img src="images/jail.png" />
+        </div>
+
+        <div class="double-box parking">
+          <img src="images/parking.png" />
+        </div>
+
+        <div class="double-box goToJail">
+          <img src="images/goToJail.png" />
+        </div>
+
+        <div class="row horizontal-bottom">
+          <div class="box street">
+            <div class="color brown"></div>
+            <p class="text">
+              respublikos<br />
+              gatvė
+            </p>
+            <p class="price">60</p>
+          </div>
+          <div class="box chest">
+            <p class="text">
+              visuomenės<br />
+              iždas
+            </p>
+            <img src="images/chest.gif" />
+          </div>
+          <div class="box street">
+            <div class="color brown"></div>
+            <p class="text">
+              liaudies<br />
+              gatvė
+            </p>
+            <p class="price">60</p>
+          </div>
+          <div class="box tax">
+            <p class="text">
+              pajamų<br />
+              mokestis
+            </p>
+            <p class="price">mokėk 200</p>
+            <img src="images/tax.png" />
+          </div>
+          <div class="box transfer">
+            <p class="text">
+              lietuvos<br />
+              autobusai
+            </p>
+            <p class="price">200</p>
+            <img src="images/bus.png" />
+          </div>
+          <div class="box street">
+            <div class="color light-blue"></div>
+            <p class="text">
+              jaunatvės<br />
+              gatvė
+            </p>
+            <p class="price">100</p>
+          </div>
+          <div class="box chance">
+            <p class="text">
+              šansas
+            </p>
+            <img src="images/chance.png" />
+          </div>
+          <div class="box street">
+            <div class="color light-blue"></div>
+            <p class="text">
+              ramybės<br />
+              gatvė
+            </p>
+            <p class="price">100</p>
+          </div>
+          <div class="box street">
+            <div class="color light-blue"></div>
+            <p class="text">
+              centras
+            </p>
+            <p class="price">120</p>
+          </div>
+        </div>
+
+        <div class="row horizontal-top">
+          <div class="box street">
+            <div class="color yellow"></div>
+            <p class="text">
+              uab<br />
+              "rigveda"
+            </p>
+            <p class="price">280</p>
+          </div>
+          <div class="box water">
+            <p class="text">
+              geriamias<br />
+              vanduo
+            </p>
+            <img src="images/water.png" />
+            <p class="price">150</p>
+          </div>
+          <div class="box street">
+            <div class="color yellow"></div>
+            <p class="text">
+              rinkos<br />
+              aikštė
+            </p>
+            <p class="price">260</p>
+          </div>
+          <div class="box street">
+            <div class="color yellow"></div>
+            <p class="text">
+              uab<br />
+              "vikonda"
+            </p>
+            <p class="price">260</p>
+          </div>
+          <div class="box transfer">
+            <p class="text">
+              lietuvos<br />
+              autobusai
+            </p>
+            <p class="price">200</p>
+            <img src="images/bus.png" />
+          </div>
+          <div class="box street">
+            <div class="color red"></div>
+            <p class="text">
+              dadu<br />
+              ledai
+            </p>
+            <p class="price">240</p>
+          </div>
+          <div class="box street">
+            <div class="color red"></div>
+            <p class="text">
+              uab<br />
+              "konservai"
+            </p>
+            <p class="price">220</p>
+          </div>
+          <div class="box chance">
+            <p class="text">
+              šansas
+            </p>
+            <img src="images/chance.png" />
+          </div>
+          <div class="box street">
+            <div class="color red"></div>
+            <p class="text">
+              UAB<br />
+              "krekenava"
+            </p>
+            <p class="price">220</p>
+          </div>
+        </div>
+
+        <div class="column vertical-left">
+          <div class="box street">
+            <div class="color orange"></div>
+            <p class="text">
+              UAB<br />
+              "rivona"
+            </p>
+            <p class="price">200</p>
+          </div>
+          <div class="box street">
+            <div class="color orange"></div>
+            <p class="text">
+              UAB<br />
+              "laumetris"
+            </p>
+            <p class="price">180</p>
+          </div>
+          <div class="box chest">
+            <p class="text">
+              visuomenės<br />
+              iždas
+            </p>
+            <img src="images/chest.gif" />
+          </div>
+          <div class="box street">
+            <div class="color orange"></div>
+            <p class="text">
+              AB<br />
+              "Lifosa"
+            </p>
+            <p class="price">180</p>
+          </div>
+          <div class="box transfer">
+            <p class="text">
+              lietuvos<br />
+              autobusai
+            </p>
+            <img src="images/bus.png" />
+            <p class="price">200</p>
+          </div>
+          <div class="box street">
+            <div class="color purple"></div>
+            <p class="text">
+              stadionas
+            </p>
+            <p class="price">160</p>
+          </div>
+          <div class="box street">
+            <div class="color purple"></div>
+            <p class="text">
+              kolegija
+            </p>
+            <p class="price">140</p>
+          </div>
+          <div class="box electric">
+            <p class="text">
+              elektros<br />
+              tinklai
+            </p>
+            <img src="images/bulb.gif" />
+            <p class="price">150</p>
+          </div>
+          <div class="box street">
+            <div class="color purple"></div>
+            <p class="text">
+              žemaitės<br />
+              gatvė
+            </p>
+            <p class="price">140</p>
+          </div>
+        </div>
+
+        <div class="column vertical-right">
+          <div class="box street">
+            <div class="color blue"></div>
+            <p class="text">
+              Babėnai
+            </p>
+            <p class="price">400</p>
+          </div>
+          <div class="box luxuryTax">
+            <p class="text">
+              Nupirkai<br />
+              žiedą
+            </p>
+            <img src="images/ring.png" />
+            <p class="price">kaina 100</p>
+          </div>
+
+          <div class="box street">
+            <div class="color blue"></div>
+            <p class="text">
+              Stepono K.<br />
+              gatvė
+            </p>
+            <p class="price">350</p>
+          </div>
+
+          <div class="box chance">
+            <p class="text">
+              šansas
+            </p>
+            <img src="images/chance.png" />
+          </div>
+          <div class="box transfer">
+            <p class="text">
+              lietuvos<br />
+              autobusai
+            </p>
+            <img src="images/bus.png" />
+            <p class="price">200</p>
+          </div>
+          <div class="box street">
+            <div class="color green"></div>
+            <p class="text">
+              MAXIMA XXX
+            </p>
+            <p class="price">320</p>
+          </div>
+          <div class="box chest">
+            <p class="text">
+              visuomenės<br />
+              iždas
+            </p>
+            <img src="images/chest.gif" />
+          </div>
+          <div class="box street">
+            <div class="color green"></div>
+            <p class="text">
+              MAXIMA XX
+            </p>
+            <p class="price">300</p>
+          </div>
+          <div class="box street">
+            <div class="color green"></div>
+            <p class="text">
+              MAXIMA X
+            </p>
+            <p class="price">300</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="playerInfos"></div>
+    </div>
+  </body>
+</html>
+<script src="main.js"></script>
