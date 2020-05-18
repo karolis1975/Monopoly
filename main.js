@@ -572,7 +572,7 @@ function playerTurn() {
   turnBtn.style.display = "none";
 
   const movingPlayer = document.querySelector(".player" + turns);
-  let howManyTimeMove = 10;
+  let howManyTimeMove = 30;
   //const dices = [1, 1, 2, 2];
   // let howManyTimeMove = null;
 
@@ -731,13 +731,16 @@ function showCard() {
 
 function inJail() {
   const movingPlayer = document.querySelector(".player" + turns);
-  let moveX = -1000;
-  let moveY = 0;
-  players[playerIndex].position.number = 10;
-  players[playerIndex].position.x = moveX;
-  players[playerIndex].position.y = moveY;
+  let timesToMove = 20;
+  let moveX = players[playerIndex].position.x;
+  let moveY = players[playerIndex].position.y;
+  while (timesToMove >= 0) {
+    if (moveY < 0) moveY += 100;
+    else moveX -= 100;
 
-  movingPlayer.style.cssText = `transform: translate(${moveX}px,${moveY}px)`;
+    movingPlayer.style.cssText = `transform: translate(${moveX}px,${moveY}px)`;
+  }
+  players[playerIndex].position.number = 10;
 }
 
 for (let i = 0; i < buyCard.length; i++) {
