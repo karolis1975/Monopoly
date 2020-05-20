@@ -11,7 +11,31 @@
     <title>Monopolis</title>
   </head>
   <body>
-    <div class="showOtherCard">
+    <div class="showServiceCard">
+      <h1 class="cardName"></h1>
+      <p class="serviceText">
+        Jei turite tik 1 iš paslaugų įmonių (Elektros tinklai arba Geriamas
+        Vanduo), turite sumokėti 4 kartus padauginę iš išmestų kauliukų
+        skaičiaus, o jei turite abi įmones, sumokate 10 kartų padauginę iš
+        išmestų kauliukų skaičiaus.
+      </p>
+      <div class="buyOrNo">
+        <button class="buyCard">
+          Pirkti už<span class="cardPrice"></span>
+        </button>
+        <button class="dontBuy">
+          Nepirkti
+        </button>
+      </div>
+      <div class="serviceCardFunctions">
+        <button class="mortgage">
+          Įkeisti<br /><span class="mortgagePrice"></span>
+        </button>
+        <button class="quitCard">Grįžti</button>
+      </div>
+    </div>
+
+    <div class="showBusCard">
       <h1 class="cardName"></h1>
       <ul class="renting">
         <li class="1Rent">Nuoma <span class="rentPrice"></span></li>
@@ -32,6 +56,12 @@
         <button class="dontBuy">
           Nepirkti
         </button>
+      </div>
+      <div class="busCardFunctions">
+        <button class="mortgage">
+          Įkeisti<br /><span class="mortgagePrice"></span>
+        </button>
+        <button class="quitCard">Grįžti</button>
       </div>
     </div>
     <div class="showStreetCard">
@@ -72,6 +102,15 @@
           Nepirkti
         </button>
       </div>
+      <div class="streetCardFunctions">
+        <button class="build">
+          Statyti namą
+        </button>
+        <button class="mortgage">
+          Įkeisti<br /><span class="mortgagePrice"></span>
+        </button>
+        <button class="quitCard">Grįžti</button>
+      </div>
     </div>
     <div class="showChanceCard">
       <h1>Šansas</h1>
@@ -79,7 +118,10 @@
         <h3 class="chanceText"></h3>
         <img src="images/guy.png" />
       </div>
-      <button class="chanceAction button">SUMOKĖTI</button>
+      <div class="chanceButtons">
+        <button class="chanceAction button"></button>
+        <button class="chanceAction2 button"></button>
+      </div>
     </div>
 
     <div class="payForCard">
@@ -92,12 +134,32 @@
         Susimokėti<span class="payCard"></span>
       </button>
     </div>
-    <div class="whoseTurn">
-      <button class="turnBtn">Mesti kauliuką</button>
-      <button class="finishTurnBtn">Baigti ėjimą</button>
-      <div class="turnText">
-        <h2 class="turnNr">1 žaidėjo eilė</h2>
-        <h2 class="leftTime"></h2>
+    <div class="bottom">
+      <div class="whoseTurn">
+        <button class="turnBtn">Mesti kauliuką</button>
+        <button class="finishTurnBtn">Baigti ėjimą</button>
+        <div class="turnText">
+          <h2 class="turnNr">1 žaidėjo eilė</h2>
+          <h2 class="leftTime"></h2>
+        </div>
+      </div>
+      <div class="housesAndHotels">
+        <div class="houses">
+          <h1 class="houseNr">32</h1>
+          <img src="images/house.png" />
+        </div>
+        <div class="hotels">
+          <h1 class="hotelNr">12</h1>
+          <img src="images/hotel.png" />
+        </div>
+      </div>
+      <div class="dices">
+        <div class="dice firstDice">
+          <img src="images/dice1.png" class="diceNr" />
+        </div>
+        <div class="dice secondDice">
+          <img src="images/dice1.png" class="diceNr" />
+        </div>
       </div>
     </div>
     <div class="container">

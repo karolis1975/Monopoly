@@ -22,6 +22,13 @@ body {
           justify-content: center;
 }
 
+.boardHouse {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 20px;
+}
+
 .button {
   position: absolute;
   width: 100%;
@@ -47,6 +54,7 @@ body {
 }
 
 .showChanceCard {
+  display: none;
   width: 400px;
   height: 300px;
   background: #f7941d;
@@ -77,8 +85,24 @@ body {
   width: 150px;
 }
 
-.showOtherCard,
-.showStreetCard {
+.showChanceCard .chanceButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.showChanceCard .chanceButtons .chanceAction2 {
+  width: 50%;
+  right: 0;
+  left: initial;
+  display: none;
+  border-left: 5px solid black;
+}
+
+.showBusCard,
+.showStreetCard,
+.showServiceCard {
+  display: none;
   position: absolute;
   z-index: 5;
   background: white;
@@ -88,10 +112,12 @@ body {
   text-transform: initial;
 }
 
-.showOtherCard .cardName,
-.showOtherCard .cardNameStreet,
+.showBusCard .cardName,
+.showBusCard .cardNameStreet,
 .showStreetCard .cardName,
-.showStreetCard .cardNameStreet {
+.showStreetCard .cardNameStreet,
+.showServiceCard .cardName,
+.showServiceCard .cardNameStreet {
   height: 100px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -107,32 +133,64 @@ body {
   border-bottom: 5px solid black;
 }
 
-.showOtherCard .renting,
-.showOtherCard .housePricing,
+.showBusCard .serviceText,
+.showBusCard .renting,
+.showBusCard .housePricing,
+.showStreetCard .serviceText,
 .showStreetCard .renting,
-.showStreetCard .housePricing {
+.showStreetCard .housePricing,
+.showServiceCard .serviceText,
+.showServiceCard .renting,
+.showServiceCard .housePricing {
   padding: 15px;
   font-size: 1rem;
-  list-style: none;
   text-align: left;
+  line-height: 1.5;
+  list-style: none;
 }
 
-.showOtherCard .renting li,
-.showOtherCard .housePricing li,
+.showBusCard .renting li,
+.showBusCard .housePricing li,
 .showStreetCard .renting li,
-.showStreetCard .housePricing li {
-  padding-bottom: 10px;
+.showStreetCard .housePricing li,
+.showServiceCard .renting li,
+.showServiceCard .housePricing li {
+  padding-bottom: 5px;
 }
 
-.showOtherCard .renting li span,
-.showOtherCard .housePricing li span,
+.showBusCard .renting li span,
+.showBusCard .housePricing li span,
 .showStreetCard .renting li span,
-.showStreetCard .housePricing li span {
+.showStreetCard .housePricing li span,
+.showServiceCard .renting li span,
+.showServiceCard .housePricing li span {
   float: right;
 }
 
-.showOtherCard .buyOrNo,
-.showStreetCard .buyOrNo {
+.showBusCard .streetCardFunctions,
+.showBusCard .busCardFunctions,
+.showBusCard .serviceCardFunctions,
+.showStreetCard .streetCardFunctions,
+.showStreetCard .busCardFunctions,
+.showStreetCard .serviceCardFunctions,
+.showServiceCard .streetCardFunctions,
+.showServiceCard .busCardFunctions,
+.showServiceCard .serviceCardFunctions {
+  display: none;
+}
+
+.showBusCard .buyOrNo,
+.showBusCard .streetCardFunctions,
+.showBusCard .busCardFunctions,
+.showBusCard .serviceCardFunctions,
+.showStreetCard .buyOrNo,
+.showStreetCard .streetCardFunctions,
+.showStreetCard .busCardFunctions,
+.showStreetCard .serviceCardFunctions,
+.showServiceCard .buyOrNo,
+.showServiceCard .streetCardFunctions,
+.showServiceCard .busCardFunctions,
+.showServiceCard .serviceCardFunctions {
   border-top: 5px solid black;
   height: 70px;
   width: 100%;
@@ -140,10 +198,19 @@ body {
   bottom: 0;
 }
 
-.showOtherCard .buyOrNo button,
-.showStreetCard .buyOrNo button {
+.showBusCard .buyOrNo button,
+.showBusCard .streetCardFunctions button,
+.showBusCard .busCardFunctions button,
+.showBusCard .serviceCardFunctions button,
+.showStreetCard .buyOrNo button,
+.showStreetCard .streetCardFunctions button,
+.showStreetCard .busCardFunctions button,
+.showStreetCard .serviceCardFunctions button,
+.showServiceCard .buyOrNo button,
+.showServiceCard .streetCardFunctions button,
+.showServiceCard .busCardFunctions button,
+.showServiceCard .serviceCardFunctions button {
   cursor: pointer;
-  width: 50%;
   height: 100%;
   float: left;
   font-weight: bold;
@@ -154,24 +221,75 @@ body {
   font-size: 1.2rem;
 }
 
-.showOtherCard .buyOrNo button:hover,
-.showStreetCard .buyOrNo button:hover {
+.showBusCard .buyOrNo button:hover,
+.showBusCard .streetCardFunctions button:hover,
+.showBusCard .busCardFunctions button:hover,
+.showBusCard .serviceCardFunctions button:hover,
+.showStreetCard .buyOrNo button:hover,
+.showStreetCard .streetCardFunctions button:hover,
+.showStreetCard .busCardFunctions button:hover,
+.showStreetCard .serviceCardFunctions button:hover,
+.showServiceCard .buyOrNo button:hover,
+.showServiceCard .streetCardFunctions button:hover,
+.showServiceCard .busCardFunctions button:hover,
+.showServiceCard .serviceCardFunctions button:hover {
   background: white;
 }
 
-.showOtherCard .buyOrNo button:focus,
-.showStreetCard .buyOrNo button:focus {
+.showBusCard .buyOrNo button:focus,
+.showBusCard .streetCardFunctions button:focus,
+.showBusCard .busCardFunctions button:focus,
+.showBusCard .serviceCardFunctions button:focus,
+.showStreetCard .buyOrNo button:focus,
+.showStreetCard .streetCardFunctions button:focus,
+.showStreetCard .busCardFunctions button:focus,
+.showStreetCard .serviceCardFunctions button:focus,
+.showServiceCard .buyOrNo button:focus,
+.showServiceCard .streetCardFunctions button:focus,
+.showServiceCard .busCardFunctions button:focus,
+.showServiceCard .serviceCardFunctions button:focus {
   outline: none;
 }
 
-.showOtherCard .buyOrNo .buyCard,
-.showStreetCard .buyOrNo .buyCard {
-  border-right: 5px solid black;
+.showBusCard .buyOrNo span,
+.showBusCard .streetCardFunctions span,
+.showBusCard .busCardFunctions span,
+.showBusCard .serviceCardFunctions span,
+.showStreetCard .buyOrNo span,
+.showStreetCard .streetCardFunctions span,
+.showStreetCard .busCardFunctions span,
+.showStreetCard .serviceCardFunctions span,
+.showServiceCard .buyOrNo span,
+.showServiceCard .streetCardFunctions span,
+.showServiceCard .busCardFunctions span,
+.showServiceCard .serviceCardFunctions span {
+  padding-left: 10px;
 }
 
-.showOtherCard .buyOrNo .buyCard span,
-.showStreetCard .buyOrNo .buyCard span {
-  padding-left: 10px;
+.buyOrNo button,
+.busCardFunctions button,
+.serviceCardFunctions button {
+  width: 50%;
+}
+
+.buyOrNo .buyCard,
+.buyOrNo .mortgage,
+.busCardFunctions .buyCard,
+.busCardFunctions .mortgage,
+.serviceCardFunctions .buyCard,
+.serviceCardFunctions .mortgage {
+  border-right: 5px solid black !important;
+}
+
+.streetCardFunctions .mortgage {
+  border-left: 5px solid black !important;
+  border-right: 5px solid black !important;
+}
+
+.streetCardFunctions button {
+  padding: 10px;
+  font-size: 1rem !important;
+  width: 33.33%;
 }
 
 .showStreetCard .renting li.rentHotel,
@@ -189,6 +307,7 @@ body {
 }
 
 .payForCard {
+  display: none;
   position: absolute;
   z-index: 5;
   width: 400px;
@@ -214,12 +333,59 @@ body {
   font-size: 1.1rem;
 }
 
-.whoseTurn {
+.bottom {
   position: fixed;
-  z-index: 10;
+  background: white;
   bottom: 0;
-  right: 0px;
+  z-index: 10;
+  width: 100%;
   border-top: 5px solid black;
+  height: 70px;
+}
+
+.bottom .dices {
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  height: 100%;
+  border-right: 5px solid black;
+  width: 140px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bottom .dices .firstDice,
+.bottom .dices .secondDice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bottom .dices .firstDice {
+  border-right: 1px solid black;
+}
+
+.bottom .dices .dice img {
+  width: 100%;
+  height: 100%;
+}
+
+.bottom .whoseTurn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
   border-left: 5px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,11 +396,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 70px;
 }
 
-.whoseTurn .turnBtn,
-.whoseTurn .finishTurnBtn {
+.bottom .whoseTurn .turnBtn.cantTurn {
+  pointer-events: none;
+}
+
+.bottom .whoseTurn .turnBtn,
+.bottom .whoseTurn .finishTurnBtn {
   height: 100%;
   padding: 20px;
   border: none;
@@ -245,21 +414,21 @@ body {
   width: 200px;
 }
 
-.whoseTurn .turnBtn:hover,
-.whoseTurn .finishTurnBtn:hover {
+.bottom .whoseTurn .turnBtn:hover,
+.bottom .whoseTurn .finishTurnBtn:hover {
   background: white;
 }
 
-.whoseTurn .turnBtn:focus,
-.whoseTurn .finishTurnBtn:focus {
+.bottom .whoseTurn .turnBtn:focus,
+.bottom .whoseTurn .finishTurnBtn:focus {
   outline: none;
 }
 
-.whoseTurn .finishTurnBtn {
+.bottom .whoseTurn .finishTurnBtn {
   display: none;
 }
 
-.whoseTurn .turnText {
+.bottom .whoseTurn .turnText {
   background: #ff3838;
   height: 100%;
   width: 250px;
@@ -275,8 +444,49 @@ body {
           justify-content: center;
 }
 
-.whoseTurn .turnText .leftTime {
+.bottom .whoseTurn .turnText .leftTime {
   display: none;
+}
+
+.bottom .housesAndHotels {
+  background: white;
+  border-right: 5px solid black;
+  position: absolute;
+  bottom: 0px;
+  left: 140px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bottom .housesAndHotels .houses,
+.bottom .housesAndHotels .hotels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.bottom .housesAndHotels .houses h1,
+.bottom .housesAndHotels .hotels h1 {
+  padding-right: 10px;
+}
+
+.bottom .housesAndHotels .houses {
+  padding-right: 20px;
+  border-right: 1px solid black;
+}
+
+.bottom .housesAndHotels .houses img {
+  width: 60px;
+}
+
+.bottom .housesAndHotels .hotels img {
+  width: 55px;
 }
 
 .theStartContainer {
@@ -343,7 +553,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 95%;
-  margin: 50px auto;
+  margin: 50px auto 100px auto;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -666,21 +876,82 @@ body {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
+.container .playerInfos {
+  width: 410px;
+}
+
 .container .playerInfos .playerInfoCont {
-  padding: 20px 20px;
   margin: 20px 0;
-  width: 300px;
+  width: 100%;
   height: 200px;
-  background: #e9e9e9;
+  -webkit-box-shadow: 0 0 5px #d6d6d6;
+          box-shadow: 0 0 5px #d6d6d6;
+}
+
+.container .playerInfos .playerInfoCont .playerInfo {
+  padding: 20px 20px;
+  background: #cde6d0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .playerInfos .playerCards {
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .playerInfos .playerCards .playerCard {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor {
+  width: 100%;
+  height: 10px;
+  border-bottom: 1px solid black;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-brown {
+  background: #955436;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-lightBlue {
+  background: #aae0fa;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-purple {
+  background: #d93a96;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-orange {
+  background: #f7941d;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-red {
+  background: #ed1b24;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-yellow {
+  background: #fef200;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-green {
+  background: #1fb25a;
+}
+
+.container .playerInfos .playerCards .playerCard .cardColor.card-blue {
+  background: #0072bb;
 }
 /*# sourceMappingURL=style.css.map */
